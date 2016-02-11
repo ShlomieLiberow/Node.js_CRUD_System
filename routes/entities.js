@@ -23,4 +23,28 @@ router.post('/', function(req, res){
     });
 });
 
+router.get('/:id', function (req, res) {
+    var collection = db.get('usercollection');
+    collection.findOne({_id: req.params.id}, function (err, entity) {
+        if (err) throw err;
+
+        res.json(entity);
+    });
+});
+
+router.put('/:id', function (req, res) {
+    var collection = db.get('usercollection');
+    collection.update({
+            _id: req.params.id
+        },
+        {
+            title: req.body.username,
+            description: req.body.useremail
+        }, function (err, entity) {
+            if (err) throw err;
+
+            res.json(entity);
+        });
+});
+
 module.exports = router;

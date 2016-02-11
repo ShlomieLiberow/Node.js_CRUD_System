@@ -35,6 +35,7 @@ app.use(function(req,res,next){
 });
 
 //middleware
+//binds routes to URL
 app.use('/', routes);
 app.use('/users', users);
 app.use('/api/entities', entities);

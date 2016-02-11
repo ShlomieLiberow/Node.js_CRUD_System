@@ -3,19 +3,23 @@
  */
 //mongod --dbpath C:\Users\Shlomie\Documents\UKLFI\data
 //db.usercollection.find().pretty()
-var app = angular.module('uklfi', ['ngResource', 'ngRoute']);
+var app = angular.module('uklfi', ['ngResource', 'ngRoute']);//named declared in layout.jade + dependencies
 
-app.config(['$routeProvider', function ($routeProvider) {
+app.config(['$routeProvider', function ($routeProvider) { //This code will be run as soon as Angular detects ng-app and tries to start up
     $routeProvider
         .when('/', {
             templateUrl: 'particles/home.html',
             controller: 'HomeCtrl'
         })
         .when('/add-entity', {
-            templateUrl: 'particles/form.html',
+            templateUrl: 'particles/submitNewEntries.html',
             controller:'SaveCtrl'
         })
-        .otherwise({
+        .when('/entity/:id', {
+            templateUrl: 'particles/submitNewEntries.html',
+            controller: 'EditCtrl'
+        })
+        .otherwise({//if the app receives a URL that is not defined.
             redirectTo: '/'
         });
 }]);
@@ -34,8 +38,25 @@ app.controller('SaveCtrl', ['$scope', '$resource', '$location',
         //This method will be called when the user clicks the Save button.
         $scope.save = function(){
             var Entities = $resource('/api/entities');
-            Entities.save($scope.entries, function(){
+            Entities.save($scope.entries, function () {//save function is declared in html.
                 $location.path('/');
             });
         };
+    }]);
+
+app.controller('EditCtrl', ['$scope', '$resource', '$location', '$routeParams',
+    function ($scope, $resource, $location, $routeParams) {
+        var Entities = $resource('/api/entities/:id', {id: '@_id'}, {
+            update: {method: 'PUT'}
+        });
+
+        Entities.get({id: $routeParams.id}, function (entries) {
+            $scope.entries = entries;
+        });
+
+        $scope.save = function () {
+            Entities.update($scope.entries, function () {
+                $location.path('/');
+            });
+        }
     }]);

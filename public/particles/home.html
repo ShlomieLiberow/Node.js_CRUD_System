@@ -5,5 +5,10 @@
 </p>
 
 <ul>
-    <li ng-repeat='entries in entries'>{{entries}}</li>
+    <!--<li ng-repeat='entries in entries'>{{entries}}</li>&lt;!&ndash;ng-repeat is an expression similar to a foreach &ndash;&gt;-->
+    <li ng-repeat='entry in entries'>
+        <a href="/#/entity/{{entry._id}}">
+            {{entry}}
+        </a>
+    </li>
 </ul>
