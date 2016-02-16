@@ -38,7 +38,7 @@ app.controller('SaveCtrl', ['$scope', '$resource', '$location',
         //This method will be called when the user clicks the Save button.
         $scope.save = function(){
             var Entities = $resource('/api/entities');
-            Entities.save($scope.entries, function () {//save function is declared in html.
+            Entities.save($scope.entries, function () {//save function is native??.
                 $location.path('/');
             });
         };
@@ -46,16 +46,16 @@ app.controller('SaveCtrl', ['$scope', '$resource', '$location',
 
 app.controller('EditCtrl', ['$scope', '$resource', '$location', '$routeParams',
     function ($scope, $resource, $location, $routeParams) {
-        var Entities = $resource('/api/entities/:id', {id: '@_id'}, {
-            update: {method: 'PUT'}
+        var Entities = $resource('/api/entities/:id', {id: '@_id'}, { //‘@_id’ tells Angular to look for property _id in the object included in request body
+            update: {method: 'PUT'}//required in Angular to use PUT
         });
 
-        Entities.get({id: $routeParams.id}, function (entries) {
-            $scope.entries = entries;
+        Entities.get({id: $routeParams.id}, function (entries) {//presumably overrides above {id: '@_id'} to supply its own
+            $scope.entries = entries;//puts it in scope so page can reference it using ng-model="entries.username"
         });
 
-        $scope.save = function () {
-            Entities.update($scope.entries, function () {
+        $scope.save = function () {//called when save is clicked
+            Entities.update($scope.entries, function () {//this uses above functionality to assign property_id to $resource
                 $location.path('/');
             });
         }
