@@ -111,7 +111,6 @@ router.delete('/:id', function (req, res) {
     var collection = db.get('usercollection');
     collection.remove({_id: req.params.id}, function (err, entity) {
         if (err) throw err;
-
         res.json(entity);
     });
 });
