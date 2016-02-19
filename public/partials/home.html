@@ -1,0 +1,51 @@
+<h1>Home Page</h1>
+
+<p>
+    <a class="btn btn-info btn-md pull-right" href="/#/add-entity">Add an Entry</a>
+</p>
+
+<ul>
+    <!--<li ng-repeat='entries in entries'>{{entries}}</li>&lt;!&ndash;ng-repeat is an expression similar to a foreach&ndash;&gt;-->
+    <li ng-repeat='entry in entries'>
+        <!--<a href="/#/entity/delete/{{entry._id}}">
+            &lt;!&ndash;<i class="glyphicon glyphicon-remove"></i>&ndash;&gt;
+            <span class="label label-warning">Warning</span>
+        </a>-->
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Occupation</th>
+                <th>Category</th>
+                <th>Jurisdictions</th>
+                <th>AreasOfLaw</th>
+                <th>LegalInterests</th>
+                <th>NonLegalTasks</th>
+                <th>OtherSpecialisms</th>
+                <th>Volunteering</th>
+                <th>Country</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{entry.title}} {{entry.firstname}} {{ entry.surname}}</td>
+                <td>{{entry.email}}</td>
+                <td>{{entry.occupation}}</td>
+                <td>{{entry.category}}</td>
+                <td>{{entry.jurisdictions}}</td>
+                <td>{{entry.relevantAreasOfLaw}}</td>
+                <td>{{entry.legalResearchInterests}}</td>
+                <td>{{entry.nonLegaTasks}}</td>
+                <td>{{entry.otherProfessionalSpecialisms}}</td>
+                <td>{{entry.volunteeringIntent}} {{entry.volunteeringCompleted}}</td>
+                <td>{{entry.country}}</td>
+                <th scope="row">
+                    <a class="btn btn-success pull-right" href="/#/entity/{{entry._id}}">Edit</a>
+                </th>
+            </tr>
+            </tbody>
+        </table>
+    </li>
+</ul>
+</div>

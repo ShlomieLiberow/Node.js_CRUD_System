@@ -1,0 +1,97 @@
+<h1>Add an Entry</h1>
+
+<form>
+    <div class="form-group">
+        <label>Title</label>
+        <select class="form-control" ng-model="entries.title">
+            <option>Mr</option>
+            <option>Mrs</option>
+            <option>Miss</option>
+            <option>Rabbi</option>
+            <option>Dr</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>FirstName</label>
+        <textarea class="form-control" ng-model="entries.firstname"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Surname</label>
+        <textarea class="form-control" ng-model="entries.surname"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Suffix</label>
+        <textarea class="text" ng-model="entries.suffix"></textarea>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class='col-sm-6'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                        <div class='input-group date' id='datetimepicker2'>
+                            <input type='text' class="form-control"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" textarea class="form-control" ng-model="entries.email"></inputtextarea>
+    </div>
+    <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-primary" ng-model="entries.facebook" btn-checkbox>
+            test
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" ng-model="entries.notes"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" ng-model="entries.catagory"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Joined As Member of Association</label>
+        <textarea class="date" ng-model="entries.memberOfAssociation"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" ng-model="entries.surname"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" ng-model="entries.surname"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" ng-model="entries.surname"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" ng-model="entries.surname"></textarea>
+    </div>
+
+
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" ng-model="entries.email"></textarea>
+    </div>
+    <input type="button" class="btn btn-primary" value="Save" ng-click="save()">
+    <a class="btn btn-default" href="/#/entity/delete/{{entries._id}}">Delete Entry</a>
+
+</form>

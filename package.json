@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "angucomplete-alt": "^2.2.0",
     "angular": "^1.4.8",
     "angular-route": "^1.4.8",
     "body-parser": "~1.13.2",

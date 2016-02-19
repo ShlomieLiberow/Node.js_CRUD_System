@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Delete Entry</h1>
+<p>
+    Are you sure you want to delete this entry?
+</p>
+<ul>
+    <li>Title: {{entries.title}}</li>
+    <li>Description: {{entries.username}}</li>
+</ul>
+<input type="button" value="Yes, Delete" class="btn btn-danger" ng-click="delete()"/>
+<a class="btn btn-default" href="/#/">No, Go Back</a>
+</body>
+</html>
