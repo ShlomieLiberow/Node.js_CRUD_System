@@ -7,24 +7,6 @@ angular.module('autofields', ['autofields']);
 var app = angular.module('uklfi', ['ngResource', 'ngRoute', 'autofields']);//named declared in layout.jade + dependencies
 var appSearch = angular.module('appSearch', ["angucomplete-alt"]);
 
-
-app.controller('EditCtrl', ['$scope', '$resource', '$location', '$routeParams',
-    function ($scope, $resource, $location, $routeParams) {
-        var Entities = $resource('/api/entities/:id', {id: '@_id'}, { //‘@_id’ tells Angular to look for property _id in the object included in request body
-            update: {method: 'PUT'}//required in Angular to use PUT
-        });
-
-        Entities.get({id: $routeParams.id}, function (entries) {//presumably overrides above {id: '@_id'} to supply its own
-            $scope.entries = entries;//puts it in scope so page can reference it using ng-model="entries.username"
-        });
-
-        $scope.save = function () {//called when save is clicked
-            Entities.update($scope.entries, function () {//this uses above functionality to assign property_id to $resource
-                $location.path('/');
-            });
-        }
-    }]);
-
 app.config(['$routeProvider', function ($routeProvider) { //This code will be run as soon as Angular detects ng-app and tries to start up
     $routeProvider
         .when('/', {
@@ -32,11 +14,11 @@ app.config(['$routeProvider', function ($routeProvider) { //This code will be ru
             controller: 'HomeCtrl'
         })
         .when('/add-entity', {
-            templateUrl: 'partials/submitNewEntries.html',
+            templateUrl: 'partials/newEntries.html',
             controller: 'demoCtrl'
         })
         .when('/entity/:id', {
-            templateUrl: 'partials/submitNewEntries.html',
+            templateUrl: 'partials/editEntries.html',
             controller: 'EditCtrl'
         })
         .when('/entity/delete/:id', {
@@ -161,7 +143,7 @@ app.controller('demoCtrl', ['$scope', '$log', '$resource', '$location', '$routeP
                     }
                 },
                 {property: 'facebook', type: 'checkbox'},
-                {property: 'bio', type: 'textare', rows: 5, attr: {required: true}},
+                {property: 'bio', type: 'textarea', rows: 5, attr: {required: true}},
                 {property: 'category', type: 'text', attr: {ngMinlength: 4, required: true}},
                 {property: 'introducer', type: 'text', attr: {ngMinlength: 4, required: true}},
                 {
@@ -191,8 +173,7 @@ app.controller('demoCtrl', ['$scope', '$log', '$resource', '$location', '$routeP
                 {property: 'state', type: 'text', attr: {ngMinlength: 4, required: true}},
                 {property: 'province', type: 'text', attr: {ngMinlength: 4, required: true}},
                 {property: 'postcodeORzipCode', type: 'text', attr: {ngMinlength: 4, required: true}},
-                {property: 'country', type: 'text', attr: {ngMinlength: 4, required: true}},
-
+                {property: 'country', type: 'text', attr: {ngMinlength: 4, required: true}}
 
             ];
 
@@ -233,23 +214,7 @@ app.controller('demoCtrl', ['$scope', '$log', '$resource', '$location', '$routeP
             $scope.addField = function () {
                 $scope.schema.push({property: 'new' + (new Date().getTime()), label: 'New Field'});
             };
-
-
-            var Entities = $resource('/api/entities/:id', {id: '@_id'}, { //‘@_id’ tells Angular to look for property _id in the object included in request body
-                update: {method: 'PUT'}//required in Angular to use PUT
-            });
-
-            Entities.get({id: $routeParams.id}, function (user) {//presumably overrides above {id: '@_id'} to supply its own
-                $scope.user = user;//puts it in scope so page can reference it using ng-model="entries.username"
-            });
-
-            $scope.save = function () {//called when save is clicked
-                Entities.update($scope.user, function () {//this uses above functionality to assign property_id to $resource
-                    $location.path('/');
-                });
-            };
-
-
+            
             $scope.join = function () {
                 if (!$scope.joinForm.$valid) return;
                 var Entities = $resource('/api/entities');

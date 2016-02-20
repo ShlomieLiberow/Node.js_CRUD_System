@@ -8,7 +8,7 @@ var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/StippedV');
 
-var routes = require('./routes/index');
+var index = require('./routes/index');
 var users = require('./routes/users');
 var entities = require('./routes/entities');
 
@@ -35,8 +35,8 @@ app.use(function(req,res,next){
 });
 
 //middleware
-//binds routes to URL
-app.use('/', routes);
+//binds index to URL
+app.use('/', index);
 app.use('/users', users);
 app.use('/api/entities', entities);
 
