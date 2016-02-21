@@ -3,15 +3,25 @@
  */
 //mongod --dbpath C:\Users\Shlomie\Documents\UKLFI\data
 //db.usercollection.find().pretty()
-angular.module('autofields', ['autofields']);
-var app = angular.module('uklfi', ['ngResource', 'ngRoute', 'autofields']);//named declared in layout.jade + dependencies
-var appSearch = angular.module('appSearch', ["angucomplete-alt"]);
+
+//angular.module('autofields', ['autofields']);
+//angular.module('ngMaterial', ['ngMaterial']);
+//angular.module('md.data.table', ['md.data.table']);
+//angular.module('ngMessages', ['ngMessages']);
+
+var app = angular.module('uklfi', ['ngResource', 'ngRoute', 'autofields', 'ngMaterial', 'ngRoute']);//named declared in layout.jade + dependencies
 
 app.config(['$routeProvider', function ($routeProvider) { //This code will be run as soon as Angular detects ng-app and tries to start up
+    'use strict';
+
     $routeProvider
         .when('/', {
             templateUrl: 'partials/home.html',
             controller: 'HomeCtrl'
+        })
+        .when('/td', {
+            templateUrl: 'partials/testNewTable.html',
+            controller: 'E6'
         })
         .when('/add-entity', {
             templateUrl: 'partials/newEntries.html',
@@ -29,6 +39,8 @@ app.config(['$routeProvider', function ($routeProvider) { //This code will be ru
             redirectTo: '/'
         });
 }]);
+
+
 // $scope as the glue between the controller and the view, $resource for working with our RESTful API,
 // and $location for changing the URL in the browser address bar. All of these are built-in Angular services.
 app.controller('HomeCtrl', ['$scope', '$resource',
@@ -180,7 +192,7 @@ app.controller('demoCtrl', ['$scope', '$log', '$resource', '$location', '$routeP
             $scope.options = {
                 validation: {
                     enabled: true,
-                    showMessages: false
+                    showMessages: true
                 },
                 layout: {
                     type: 'basic',
@@ -212,9 +224,10 @@ app.controller('demoCtrl', ['$scope', '$log', '$resource', '$location', '$routeP
             };
 
             $scope.addField = function () {
+                console.log("hello add field")
                 $scope.schema.push({property: 'new' + (new Date().getTime()), label: 'New Field'});
             };
-            
+
             $scope.join = function () {
                 if (!$scope.joinForm.$valid) return;
                 var Entities = $resource('/api/entities');
@@ -230,6 +243,7 @@ app.controller('demoCtrl', ['$scope', '$log', '$resource', '$location', '$routeP
                 });
             }
         }])
+
     .directive('confirmPassword', [function () {
         return {
             restrict: 'A',
@@ -247,3 +261,7 @@ app.controller('demoCtrl', ['$scope', '$log', '$resource', '$location', '$routeP
             }
         }
     }]);
+
+app.controller('E6', function ($scope) {
+    console.log("hello world")
+});

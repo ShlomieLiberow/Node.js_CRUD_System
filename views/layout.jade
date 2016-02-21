@@ -2,14 +2,36 @@ doctype html
 html(ng-app='uklfi')
 html
   head
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js')
+    //script(src='C:/Users/Shlomie/Documents/UKLFI/bower_components/angular-autoFields-bootstrap/autofields.js')
+    //script(src='C:/Users/Shlomie/Documents/UKLFI/bower_components/angular-autoFields-bootstrap/autofields-bootstrap.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js')
+    script(src='http://ngmaterial.assets.s3.amazonaws.com/svg-assets-cache.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-resource.js')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.js')
+    //script(src='http://rawgit.com/daniel-nagy/md-data-table/master/dist/md-data-table.js')
+
+    script(src='https://code.jquery.com/jquery-2.1.4.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    //script(src='http://mdbootstrap.com/mdbcdn/mdb.min.js')//enable when fix cors
+
+    script(src='https://cdn.gitcdn.xyz/cdn/angular/bower-material/v1.0.5/angular-material.js')
+
+    //script(src='C:/Users/Shlomie/Documents/UKLFI/bower_components/bootstrap-material-design/dist/js/material.min.js')
+
     script(src='/javascripts/AngularMain.js')
-    script(src='C:/Users/Shlomie/Documents/UKLFI/bower_components/bower_components/angular-autoFields-bootstrap/autofields-bootstrap.js')
-    script(src='C:/Users/Shlomie/Documents/UKLFI/bower_components/angular/angular.js')
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
-  body
+    //link(rel='stylesheet', href='C:/Users/Shlomie/Documents/UKLFI/bower_components/angular-material-data-table/dist/md-data-table.min.css')
+
+
+    //link(rel='stylesheet', href='http://mdbootstrap.com/mdbcdn/mdb.min.css')//enable when fix cors
+
+    link(rel='stylesheet', href='https://cdn.gitcdn.xyz/cdn/angular/bower-material/v1.0.5/angular-material.css')
+    //link(rel='stylesheet', href='https://material.angularjs.org/1.0.5/docs.css')//removes scroll ability
+
+    body
     block content

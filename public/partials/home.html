@@ -1,17 +1,26 @@
+<html>
+<head>
+    <script type="text/javascript" src="../bower_components/angular-autoFields-bootstrap/autofields.js"></script>
+    <!-- With Bootstrap -->
+    <script type="text/javascript" src="../bower_components/angular-autoFields-bootstrap/autofields-bootstrap.js"></script>
+    <script src="../javascripts/AngularMain.js"></script>
+</head>
 <h1>Home Page</h1>
 
 <p>
     <a class="btn btn-info btn-md pull-right" href="/#/add-entity">Add an Entry</a>
+    <a class="btn btn-info btn-md pull-right" href="/#/td">Test</a>
+    <input type="text" class="form-control" placeholder="Search" ng-model="searchText"></label>
 </p>
 
 <ul>
     <!--<li ng-repeat='entries in entries'>{{entries}}</li>&lt;!&ndash;ng-repeat is an expression similar to a foreach&ndash;&gt;-->
-    <li ng-repeat='entry in entries'>
+    <li ng-repeat='entry in entries | filter:searchText'>
         <!--<a href="/#/entity/delete/{{entry._id}}">
             &lt;!&ndash;<i class="glyphicon glyphicon-remove"></i>&ndash;&gt;
             <span class="label label-warning">Warning</span>
         </a>-->
-        <table class="table table-hover">
+        <table class="collection z-depth-2 table table-hover alert alert-info">
             <thead>
             <tr>
                 <th>Name</th>
@@ -49,3 +58,4 @@
     </li>
 </ul>
 </div>
+</html>
