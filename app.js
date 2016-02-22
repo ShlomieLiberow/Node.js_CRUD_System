@@ -24,7 +24,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 // Make our db accessible to our router
 //By adding this function to app.use, we're adding that object to every HTTP request (ie: "req") our app makes.

@@ -9,7 +9,7 @@
 //angular.module('md.data.table', ['md.data.table']);
 //angular.module('ngMessages', ['ngMessages']);
 
-var app = angular.module('uklfi', ['ngResource', 'ngRoute', 'autofields', 'ngMaterial', 'ngRoute']);//named declared in layout.jade + dependencies
+var app = angular.module('uklfi', ['ngResource', 'ngRoute', 'autofields', 'ngMaterial', 'ngRoute' , 'ui.bootstrap']);//named declared in layout.jade + dependencies
 
 app.config(['$routeProvider', function ($routeProvider) { //This code will be run as soon as Angular detects ng-app and tries to start up
     'use strict';
