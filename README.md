@@ -2,7 +2,7 @@
 
 Built a single page application CRUD (create, read, update and delete) system. This is my first run at the technologes involved approached with a learn-as-you-go attitude.
 
-This is for a fictional legal aid volunteering network as a model to guide the product.
+This used a fictional legal aid volunteering network as a model to guide the product.
 
 Uses MongoDB for storage, Node.js along with Jade for templating and finally Angular on the front end with a material design finish. 
 
