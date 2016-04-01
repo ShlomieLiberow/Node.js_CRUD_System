@@ -4,8 +4,6 @@
 //mongod --dbpath C:\Users\Shlomie\Documents\UKLFI\data
 //db.usercollection.find().pretty()
 
-//angular.module('autofields', ['autofields']);
-//angular.module('ngMaterial', ['ngMaterial']);
 //angular.module('md.data.table', ['md.data.table']);
 //angular.module('ngMessages', ['ngMessages']);
 
@@ -224,7 +222,7 @@ app.controller('demoCtrl', ['$scope', '$log', '$resource', '$location', '$routeP
             };
 
             $scope.addField = function () {
-                console.log("hello add field")
+                console.log("hello add field");
                 $scope.schema.push({property: 'new' + (new Date().getTime()), label: 'New Field'});
             };
 
