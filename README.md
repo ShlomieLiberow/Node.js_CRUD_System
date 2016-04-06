@@ -1,6 +1,6 @@
 # Node.js CRUD System Template
 
-Built a single page application CRUD (create, read, update and delete) system. This is my first run at the technologes involved approached with a learn-as-you-go attitude.
+A single page application CRUD (create, read, update and delete) system. This is my first run at the technologes involved thus approached with a learn-as-you-go attitude.
 
 This used a fictional legal aid volunteering network as a model to guide the product.
 
